@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    color: #F2F2F2;
+      font-family: "Poppins", sans-serif;
+}
+.satu{
+    background-color: #F564A9;
+    height: 100rem;
+    text-align: center;
+    padding-top: 4rem;
+}
+.satu p{
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.satu .isi{
+    padding: 16px;
+}
+.satu .isi p{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: justify;
+}
+.satu .btn{
+    margin-top: 1.6rem;
+}
+.satu .btn a button{
+    color: black;
+    width: 12rem;
+    height: 2.4rem;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/*ANIMASI ALL*/
+.satu p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease; 
+}
+
+.satu p.masuk {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.satu p.keluar {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+/*ANIMASI btn*/
+.satu .btn a {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease; 
+}
+
+.satu .btn a.masuk{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.satu .btn a.keluar{
+  opacity: 0;
+  transform: translateY(-50px); 
+}

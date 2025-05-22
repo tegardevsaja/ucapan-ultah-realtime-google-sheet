@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HBD Tegar 🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<style>
+  /* --- Style umum --- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    min-height: 100vh;
+    font-family: 'Patrick Hand', cursive;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #2f2f2f;
+    overflow-x: hidden;
+  }
+  .intro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px;
+    animation: fadeInUp 1s ease;
+    flex-direction: column;
+  }
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+  #photo-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 40px 20px 80px;
+    gap: 16px;
+    animation: fadeInUp 1s ease;
+    max-width: 600px;
+    margin: auto;
+  }
+  #photo-section img {
+    width: 180px;
+    height: 180px;
+    /* border-radius: 50%; */
+    border: 4px solid #fff;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+  }
+  h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+  p {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+
+  /* Gallery foto sudah ada */
+  .gallery {
+    margin-top: 40px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .gallery.show {
+    opacity: 1;
+  }
+  .swiper {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+  }
+  .gallery .swiper-slide {
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  .gallery .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- Style slider kartu --- */
+  .card-slider {
+    width: 320px;
+    max-width: 90vw;
+    margin: 40px auto 0 auto;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .card-slider.show {
+    opacity: 1;
+  }
+  .card-slider .swiper-slide {
+    background: #fff;
+    color: #222;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-slider .swiper-slide img {
+    width: 100%;
+    max-height: 200px;
+    
+    /* border-radius: 12px; */
+    margin-bottom: 12px;
+  }
+  .card-slider .card-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .card-slider .card-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Navigasi tombol warna putih */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #2e2e2e;
+  }
+
+   .photo-slider {
+      width: 90%;
+      max-width: 900px;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      background-color: white;
+    }
+    .photo-slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeOut {
+    to { opacity: 0; transform: translateY(-20px); }
+  }
+  @media (max-width: 480px) {
+    .intro {
+      font-size: 1.5rem;
+      padding: 30px;
+    }
+    h1 { font-size: 1.6rem; }
+    p { font-size: 1rem; }
+    #photo-section img {
+      width: 150px;
+      height: 150px;
+    }
+    .gallery .swiper-slide {
+      height: 200px;
+    }
+    .card-slider {
+      width: 90vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro" id="intro-text">Loading...</div>
+
+<div id="photo-section">
+  <img id="photo" src="" alt="Foto" />
+  <h1 id="card-title"></h1>
+  <p id="card-message"></p>
+
+  <div class="gallery swiper">
+    <div class="swiper-wrapper" id="swiper-wrapper">
+      <!-- foto gallery akan disisipkan di sini -->
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <!-- Tambahan: slider kartu -->
+    <!-- Slider Foto -->
+  <div class="swiper photo-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./assets/gambar1.jpeg" alt="Foto 1" />
+          <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
+          <p>Ini sangat binal dan lacur</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/gambar2.jpeg" alt="Foto 2" />
+          <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
+          <p>Aku suka akan kebinalan</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/gambar3.jpeg" alt="Foto 3" />
+    <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
+    <p>lacur bgt pls</p>
+    <p></p>
+      </div>
+      <div class="swiper-slide">
+        <img src="./assets/logo.png" alt="Foto 4" />
+        <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
+        <p>logo</p>
+      </div>
+    </div>
+    <!-- Tombol navigasi -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const intro = document.getElementById('intro-text');
+  const photoSection = document.getElementById('photo-section');
+  const photo = document.getElementById('photo');
+  const cardTitle = document.getElementById('card-title');
+  const cardMessage = document.getElementById('card-message');
+  const swiperWrapper = document.getElementById('swiper-wrapper');    
+  const cardSwiperWrapper = document.getElementById('card-swiper-wrapper');
+  const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQm_UGWoFI3ZW23gV2pNZds2vUKQwdM6POawtVQD4cn7qRI-cY6cjUvREWwHv4HCDmuvwVYeUYCMWBk/pub?output=csv';
+
+  const hariList = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  const bulanList = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  const today = new Date();
+  const hari = hariList[today.getDay()];
+  const tanggal = today.getDate();
+  const bulan = today.getMonth() + 1; 
+
+
+    const photoSwiper = new Swiper('.photo-slider', {
+      loop: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.photo-slider .swiper-button-next',
+        prevEl: '.photo-slider .swiper-button-prev',
+      },
+      pagination: {
+        el: '.photo-slider .swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    
+
+
+  function normalizeMonth(input) {
+    if (!input) return null;
+    const map = {
+      '1': 1, '01': 1, 'januari': 1, 'jan': 1,
+      '2': 2, '02': 2, 'februari': 2, 'feb': 2,
+      '3': 3, '03': 3, 'maret': 3, 'mar': 3,
+      '4': 4, '04': 4, 'april': 4, 'apr': 4,
+      '5': 5, '05': 5, 'mei': 5,
+      '6': 6, '06': 6, 'juni': 6, 'jun': 6,
+      '7': 7, '07': 7, 'juli': 7, 'jul': 7,
+      '8': 8, '08': 8, 'agustus': 8, 'agu': 8,
+      '9': 9, '09': 9, 'september': 9, 'sep': 9,
+      '10': 10, 'oktober': 10, 'okt': 10,
+      '11': 11, 'november': 11, 'nov': 11,
+      '12': 12, 'desember': 12, 'des': 12,
+    };
+    input = input.toString().toLowerCase().trim();
+    return map[input] || null;
+  }
+
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    const rows = lines.slice(1);
+    const data = [];
+
+    const csvSplitRegex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
+
+    for (const line of rows) {
+      const values = line.split(csvSplitRegex).map(v => v.trim().replace(/^"|"$/g, ''));
+      if(values.length !== headers.length) continue;
+      let obj = {};
+      headers.forEach((h, i) => obj[h] = values[i]);
+      data.push(obj);
+    }
+    return data;
+  }
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function animateText(element, text, delayMs = 150) {
+    element.textContent = '';
+    for (const char of text) {
+      element.textContent += char;
+      await delay(delayMs);
+    }
+  }
+
+  function buatGallery(images) {
+    swiperWrapper.innerHTML = '';
+    images.forEach(src => {
+      const slide = document.createElement('div');
+      slide.classList.add('swiper-slide');
+      const img = document.createElement('img');
+      img.src = src;
+      slide.appendChild(img);
+      swiperWrapper.appendChild(slide);
+    });
+  }
+
+  function buatCardSlider(cards) {
+    cardSwiperWrapper.innerHTML = '';
+    cards.forEach(card => {
+      const slide = document.createElement('div');
+      slide.classList.add('swiper-slide');
+
+      const img = document.createElement('img');
+      img.src = card.image;
+      img.alt = card.title || 'Card Image';
+
+      const title = document.createElement('div');
+      title.classList.add('card-title');
+      title.textContent = card.title || '';
+
+      const text = document.createElement('div');
+      text.classList.add('card-text');
+      text.textContent = card.text || '';
+
+      slide.appendChild(img);
+      slide.appendChild(title);
+      slide.appendChild(text);
+
+      cardSwiperWrapper.appendChild(slide);
+    });
+  }
+
+  async function main() {
+    intro.textContent = 'Loading data...';
+
+    try {
+      const response = await fetch(csvUrl);
+      const csvText = await response.text();
+      const data = parseCSV(csvText);
+
+      // Cari data hari ini berdasarkan tanggal dan bulan
+      let dataHariIni = data.find(d => {
+        const tgl = parseInt(d.Tanggal);
+        const bln = normalizeMonth(d.Bulan);
+        return (tgl === tanggal && bln === bulan);
+      });
+
+      if (!dataHariIni) {
+        dataHariIni = {
+          Nama: 'Tegar',
+          Pesan: 'Semoga bahagia selalu! semoga panjang panjang orang bike, happy bisde tu yu. ',
+          FotoUtama: '',
+          FotoGaleri: '',
+        };
+      }
+
+      // Animasi teks intro
+      await animateText(intro, `Hari ini ${hari}, tanggal ${tanggal} bulan ${bulanList[bulan-1]}`, 70);
+      await delay(500);
+      await animateText(intro, `Selamat ulang tahun, ${dataHariIni.Nama}!`, 70);
+      await delay(1500);
+      intro.classList.add('fade-out');
+
+      // Tampilkan photo-section
+      photoSection.style.display = 'flex';
+      intro.style.display = 'none';
+
+      photo.src = dataHariIni.FotoUtama || './assets/logo.png';
+      cardTitle.textContent = `Hai ${dataHariIni.Nama}!`;
+      cardMessage.textContent = dataHariIni.Pesan || 'Semoga bahagia selalu! semoga panjang panjang orang bike, happy bisde tu yu. semoga allah selalu ada, semoga mas dapa/mas ahnap/mas adin diantar mereka menjadi suami anda. sekian dari saya, terimakasih, custom ucapan? chat tegar. automatic terganti ultah nama dll.';
+
+      // Gallery foto
+      if (dataHariIni.FotoGaleri && dataHariIni.FotoGaleri.trim() !== '') {
+        const galeriList = dataHariIni.FotoGaleri.split(';').map(f => f.trim()).filter(f => f.length > 0);
+        if (galeriList.length > 0) {
+          buatGallery(galeriList);
+          const galleryElement = document.querySelector('.gallery');
+          galleryElement.classList.add('show');
+
+          new Swiper('.gallery.swiper', {
+            loop: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            navigation: {
+              nextEl: '.gallery .swiper-button-next',
+              prevEl: '.gallery .swiper-button-prev',
+            },
+          });
+        }
+      }
+
+      // Contoh data kartu (bisa kamu ganti sesuai kebutuhan)
+      const cardData = [
+        {
+          image: './assets/gambar1.jpeg',
+          title: 'by nara',
+          text: 'hiyo'
+        },
+        {
+          image: './assets/gambar2.jpeg',
+          title: 'binal bgt',
+          text: 'panjang panjang orang bike'
+        },
+        {
+          image: './assets/gambar3.jpeg',
+          title: 'Kartu Lucu binal',
+          text: 'asilole'
+        },
+      ];
+
+      if (cardData.length > 0) {
+        buatCardSlider(cardData);
+        const cardSlider = document.getElementById('card-slider');
+        cardSlider.style.display = 'block';
+        cardSlider.classList.add('show');
+
+        new Swiper('.card-slider.swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: '.card-slider .swiper-button-next',
+            prevEl: '.card-slider .swiper-button-prev',
+          },
+        });
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+      intro.innerHTML = 'Terjadi kesalahan saat memuat data.';
+    }
+  }
+
+  main();
+</script>
+</body>
+</html>
