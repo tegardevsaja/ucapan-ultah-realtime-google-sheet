@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HBD Tegar 🎉</title>
+<title>Selamat Bertambah Usia</title>
 <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
@@ -154,6 +154,124 @@
       user-select: none;
       pointer-events: none;
     }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: #2f2f2f;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.site-header {
+  text-align: center;
+  padding: 24px 16px;
+  background-color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px 16px;
+  background-color: #f5f5f5;
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 40px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.banner-card {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.banner-card img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.banner-text {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-text h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
+
+.banner-text p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .banner-card {
+    flex-direction: column;
+  }
+
+  .banner-card img {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+
 
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
@@ -204,25 +322,18 @@
   <div class="swiper photo-slider">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <img src="./assets/gambar1.jpeg" alt="Foto 1" />
-          <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
-          <p>Ini sangat binal dan lacur</p>
+        <img src="./assets/02.jpeg" alt="Foto 1" />
+          <p>gambar by <span style="color: #ff9a9e;">tegardevsja</span></p>
       </div>
       <div class="swiper-slide">
         <img src="./assets/gambar2.jpeg" alt="Foto 2" />
-          <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
-          <p>Aku suka akan kebinalan</p>
+          <p>gambar by <span style="color: #ff9a9e;">tegardevsja</span></p>
+        
       </div>
       <div class="swiper-slide">
-        <img src="./assets/gambar3.jpeg" alt="Foto 3" />
-    <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
-    <p>lacur bgt pls</p>
+        <img src="./assets/01.jpeg" alt="Foto 3" />
+    <p>gambar by <span style="color: #ff9a9e;">tegardevsja</span></p>
     <p></p>
-      </div>
-      <div class="swiper-slide">
-        <img src="./assets/logo.png" alt="Foto 4" />
-        <p>gambar by <span style="color: #ff9a9e;">nara</span></p>
-        <p>logo</p>
       </div>
     </div>
     <!-- Tombol navigasi -->
@@ -232,7 +343,56 @@
     <div class="swiper-pagination"></div>
   </div>
 
+  <!-- Card 2 kolom -->
+<div class="card-grid">
+  <div class="card">
+    <img src="./assets/01.jpeg" alt="Card 1">
+    <h3>Ini Orangnya</h3>
+    <p>Background-nya chil</p>
+  </div>
+  <div class="card">
+    <img src="./assets/02.jpeg" alt="Card 2">
+    <h3>Ini orangnya</h3>
+    <p> vibes-nya adem banget</p>
+  </div>
+  <div class="card">
+    <img src="./assets/03.jpeg" alt="Card 3">
+    <h3>OOTD</h3>
+    <p>Gaya outfit-nya simpel tapi tetap stand out</p>
+  </div>
+  <div class="card">
+    <img src="./assets/04.jpeg" alt="Card 4">
+    <h3>text not found</h3>
+    <p>Sad Mode</p>
+  </div>
+  <div class="card">
+    <img src="./assets/05.jpeg" alt="Card 4">
+    <h3>Filter IG</h3>
+    <p>cara dia mandang kamera tuh kayak ngajak ngobrol—bikin yang liat ngerasa relate</p>
+  </div>
+  <div class="card">
+    <img src="./assets/06.jpeg" alt="Card 4">
+    <h3>Orangnya  </h3>
+    <p>bikin fokus ke auranya yang calm tapi tetep nyentrik</p>
+  </div>
 </div>
+
+<div class="banner-card">
+  <img src="assets/icon.png" alt="Banner Image" />
+  <div class="banner-text">
+    <h2>TEGARDEVSJA STUDIO</h2>
+    <p>Web tempat memberikan hal yang menarik untuk kalian. tegar seperti namanya harus tegar semangat untuk meraih dunia masa depan. well done</p>
+  </div>
+</div>
+</div>
+
+ <footer class="site-footer">
+    <p>&copy; 2025 Tegar Kurniawan</p>
+    <div class="social-links">
+      <a href="https://instagram.com/tegardevsaja" target="_blank">Instagram</a>
+      <a href="https://github.com/tegardevsaja" target="_blank">GitHub</a>
+    </div>
+  </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
@@ -395,9 +555,9 @@
       photoSection.style.display = 'flex';
       intro.style.display = 'none';
 
-      photo.src = dataHariIni.FotoUtama || './assets/logo.png';
+      photo.src = dataHariIni.FotoUtama || './assets/06.jpeg';
       cardTitle.textContent = `Hai ${dataHariIni.Nama}!`;
-      cardMessage.textContent = dataHariIni.Pesan || 'Semoga bahagia selalu! semoga panjang panjang orang bike, happy bisde tu yu. semoga allah selalu ada, semoga mas dapa/mas ahnap/mas adin diantar mereka menjadi suami anda. sekian dari saya, terimakasih, custom ucapan? chat tegar. automatic terganti ultah nama dll.';
+      cardMessage.textContent = dataHariIni.Pesan || 'Happy Birthday, Selamat Bertambah Usiaaa my friend! Here’s to another amazing year ahead! Another trip around the sun, another reason to pretend we have our life together 😵‍💫 Semoga tahun ini lo makin slay, makin aware sama red flag (yes, termasuk yang lo suka itu 🙄), dan tetep jadi cewe aesthetic yang selalu bilang “self love dulu, baru love others” 💅 Let’s celebrate with overpriced coffee and deep talks that lead nowhere 😌☕. Jangan lupa, umur boleh nambah tapi vibes harus tetep muda 💖👑';
 
       // Gallery foto
       if (dataHariIni.FotoGaleri && dataHariIni.FotoGaleri.trim() !== '') {
